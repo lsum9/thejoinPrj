@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th=http://www.thymeleaf.org>
+
+<body>
+<h3>공지사항 작성</h3>
+<th:block th:replace="/header :: headerFragment"></th:block>
+
+<div class="writefrm1"><!--writefrm시작-->
+    <div class="writefrm2">
+    <form method="post" action="noticeWriteProc">
+      <!--공지사항 글작성본문영역 시작-->
+      <div>
+
+        <div class="mb-3 mt-3"><!--공지제목-->
+            <input type="text" class="form-control" name="notice_sub" id="notice_sub" placeholder="공지 제목" required>
+        </div>
+
+
+
+      <div class="vw_run"><!--runday시작-->
+          <div class="vw">
+          <div class="notice_vw"><!--게시여부-->
+              <select class="form-select" id="notice_vw" name="notice_vw">
+                  <option value="">게시여부</option>
+                  <option value="0">게시</option>
+                  <option value="1">숨김</option>
+              </select>
+          </div>
+          </div>
+
+          <div class="run">
+          <div class="notice_op_dt"><!--시작일-->
+              시작일:
+              <label for="date">
+                  <input type="date" class="form-select"
+                         id="notice_op_dt"
+                         name="notice_op_dt"
+                         th:max="${#temporals.format(endDate, 'yyyy-MM-dd')}"
+                         th:min="${#temporals.format(localDate, 'yyyy-MM-dd')}"
+                         th:value="${#temporals.format(localDate, 'yyyy-MM-dd')}">
+              </label>
+          </div>
+            &nbsp;
+          <div class="notice_ed_dt"><!--종료일-->
+              종료일:
+              <label for="date">
+                  <input type="date" class="form-select"
+                         id="notice_ed_dt"
+                         name="notice_ed_dt"
+                         th:max="${#temporals.format(endDate, 'yyyy-MM-dd')}"
+                         th:min="${#temporals.format(localDate, 'yyyy-MM-dd')}"
+                         th:value="${#temporals.format(localDate, 'yyyy-MM-dd')}">
+              </label>
+          </div>
+          </div><!--run끝-->
+      </div><!--vw_run끝-->
+
+          <div class="notice_type"><!--게시타입-->
+              게시타입:&nbsp;
+              <div>
+              <input type="radio" name="notice_typ" id="typ_webview" value="w" checked>
+                  <label for="typ_webview">웹뷰</label>
+              </div>
+              &nbsp;
+              <div>
+              <input type="radio" name="notice_typ" id="typ_link" value="l">
+                  <label for="typ_link">링크</label>
+              </div>
+          </div>
+
+          <div class="con"><!--공지내용-->
+              <div>
+                  <label for="con_webview">공지내용</label>
+                  <input type="text" class="form-control" name="notice_con" id="con_webview" value="" placeholder="파일업로드" required>
+              </div>
+              <br>
+              <div>
+                  <label for="con_link">링크 URL</label>
+                  <input type="text" class="form-control" name="notice_con" id="con_link" placeholder="http://">
+              </div>
+          </div>
+      </div>
+      <!--공지사항 글작성본문영역 끝-->
+
+    <div>
+        <input type="submit" value="등록">
+        <input type="button" value="목록으로" onclick="location.href='/adminNotice'">
+    </div>
+    </form>
+    </div>
+</div><!--writefrm 끝-->
+
+</body>
+</html>

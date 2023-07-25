@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th=http://www.thymeleaf.org>
+<th:block th:fragment="headerFragment">
+<html lang="en">
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link th:href="@{/css.css}" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>userNotice</title>
+</head>
+<body>
+
+  <!--navbar 영역 시작-->
+  <div>
+  <nav class="navbar navbar-expand-sm bg-light navbar-light">
+      <div class="container-fluid">
+          <ul class="navbar-nav">
+              <li class="nav-item">
+                  <a class="nav-link" href="/adminNotice">관리자</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link active" href="/userNotice">이용자</a>
+              </li>
+          </ul>
+      </div>
+  </nav>
+  </div>
+  <!--navbar 영역 끝-->
+
+</body>
+</html>
+</th:block>

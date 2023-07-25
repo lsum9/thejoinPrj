@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+    <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    <mapper namespace="notice">
+    <insert id="write" parameterType="kr.co.thejoin.suminproject.notice.NoticeDTO1">
+        INSERT INTO public."notice"
+(notice_sub, notice_con, notice_reg_dt, notice_op_dt, notice_ed_dt, notice_vw, notice_typ)
+VALUES(#{notice_sub}, #{notice_con}, now(), TO_DATE(#{notice_op_dt},'YYYY-MM-DD'), TO_DATE(#{notice_ed_dt},'YYYY-MM-DD'), #{notice_vw}, #{notice_typ})
+    </insert>
+
+    <select id="list" resultType="kr.co.thejoin.suminproject.notice.NoticeDTO1">
+        SELECT notice_pk, notice_sub, notice_con, notice_reg_dt, notice_op_dt, notice_ed_dt, notice_vw, notice_typ
+FROM public."notice"
+    </select>
+
+    </mapper>
+

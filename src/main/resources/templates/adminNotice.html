@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th=http://www.thymeleaf.org>
+
+<body>
+<h3>공지사항(관리자)</h3>
+<th:block th:replace="/header :: headerFragment"></th:block>
+
+<!--정렬 select 및 글개수 영역 시작 -->
+<div class="wrap1">
+    <div class="select">
+        <select class="form-select">
+            <option value="reg">등록일기준</option>
+            <option value="op">시작일기준</option>
+            <option value="ed">종료일기준</option>
+        </select>
+    </div>
+    <div class="noticeCnt">
+        글개수:
+    </div>
+</div>
+<!--정렬 select 및 글개수 영역 끝 -->
+
+<!--이용자 공지목록 영역-->
+<div class="container mt-3">
+    <table class="table table-bordered table-sm" style="text-align: center">
+        <thead>
+        <tr>
+            <th>순번</th>
+            <th>제목</th>
+            <th>타입</th>
+            <th>게시여부</th>
+            <th>게시시작</th>
+            <th>게시종료</th>
+        </tr>
+        </thead>
+
+        <!--글없을경우-->
+        <div th:if="${list == null}">
+            <tbody>
+            <tr>
+                <td th:colspan="6">공지사항 없음</td>
+            </tr>
+            </tbody>
+        </div>
+
+        <!--글있을경우-->
+        <div th:unless="${list != null}">
+
+        </div>
+        <tbody>
+        <tr th:each="notice : ${list}">
+            <td>순번</td>
+            <td>${notice.notice_sub}</td>
+            <td th:text="${notice.notice_con}"></td>
+            <td th:text="${notice.notice_typ}"></td>
+            <td th:text="${notice.notice_vw}"></td>
+            <td th:text="${notice.notice_op_dt}"></td>
+            <td th:text="${notice.notice_ed_dt}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <!--관리자 글쓰기버튼-->
+    <div>
+        <input type="button" value="글쓰기" onclick="location.href='/noticeWrite'">
+    </div>
+</div>
+
+
+
+<!--pagination영역 시작-->
+<div class="pagination">
+    <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="#">이전</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <!--      <tr th:each="notice : ${totCnt}">
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+              </tr>-->
+        <li class="page-item"><a class="page-link" href="#">다음</a></li>
+    </ul>
+</div>
+<!--pagination영역 끝-->
+</body>
+</html>

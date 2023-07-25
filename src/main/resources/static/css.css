@@ -1,0 +1,56 @@
+/*공지목록(관리자, 이용자) css*/
+.wrap1{
+    display: flex;
+    flex-direction: row;
+    justify-content : space-around;
+    margin: 15px;
+    }
+
+.select{
+}
+
+.noticeCnt{
+}
+
+.noticeCont{
+    text-align: center;
+}
+
+.pagination{
+    margin: 0 auto;
+}
+
+/*공지작성폼 css*/
+.writefrm1{
+
+}
+
+.writefrm2{
+    text-align: center;
+    margin: 10px;
+}
+
+.sub{
+    flex-basis: 500px;
+}
+
+.vw_run{
+    display: flex;
+    justify-content : space-around;
+}
+
+.run{
+    display: flex;
+    flex-basis: content;
+
+}
+
+.notice_type{
+    display: flex;
+    padding: 10px;
+}
+
+.con{
+    text-align: left;
+    padding: 10px;
+}
